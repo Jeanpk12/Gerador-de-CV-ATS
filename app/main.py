@@ -36,18 +36,19 @@ app = FastAPI(
 # --- CORS CONFIG ---
 origins = [
     "http://localhost",
-    "http://localhost:3000",  # Adicione aqui a origem do seu frontend em dev
+    "http://localhost:3000",
+    "http://localhost:5173",       # Adicione esta linha
     "http://127.0.0.1:3000",
-    # Se for rodar em produção, adicione o domínio aqui
-    # "https://seusite.com"
+    "http://127.0.0.1:5173",       # Adicione esta linha
+    # Seu domínio de produção aqui
 ]
 
 app.add_middleware(
     CORSMiddleware,
     allow_origins=origins,
     allow_credentials=True,
-    allow_methods=["*"],  
-    allow_headers=["*"],  
+    allow_methods=["*"],
+    allow_headers=["*"],
 )
 
 # --- Endpoints da API ---
